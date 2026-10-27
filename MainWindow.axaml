@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="proj_1.MainWindow"
+        Title="Kalkulator Sederhana"
+        Width="300" Height="400"
+        CanResize="False">
+
+    <StackPanel Margin="10">
+        <!-- Layar Tampilan Kalkulator -->
+        <TextBox x:Name="DisplayBox" 
+                 Text="0" 
+                 FontSize="24" 
+                 TextAlignment="Right" 
+                 IsReadOnly="True" 
+                 Margin="0,0,0,10" 
+                 Height="50"/>
+
+        <!-- Tombol-tombol Kalkulator -->
+        <UniformGrid Rows="4" Columns="4" Height="300">
+            <Button Content="7" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="8" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="9" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="/" Click="Operator_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            
+            <Button Content="4" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="5" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="6" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="*" Click="Operator_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            
+            <Button Content="1" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="2" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="3" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="-" Click="Operator_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            
+            <Button Content="C" Click="Clear_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="0" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="=" Click="Equals_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Content="+" Click="Operator_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </UniformGrid>
+    </StackPanel>
+</Window>
