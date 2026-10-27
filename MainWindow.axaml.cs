@@ -7,6 +7,7 @@ namespace proj_1;
 public partial class MainWindow : Window
 {
     private string currentInput = "";
+    private string expressionString = "";
 
     public MainWindow()
     {
@@ -26,29 +27,50 @@ public partial class MainWindow : Window
     {
         if (sender is Button btn)
         {
-            currentInput += " " + btn.Content?.ToString() + " ";
-            DisplayBox.Text = currentInput;
+            if (!string.IsNullOrEmpty(currentInput))
+            {
+                expressionString += currentInput + " " + btn.Content?.ToString() + " ";
+                ExpressionText.Text = expressionString;
+                currentInput = "";
+                DisplayBox.Text = "0";
+            }
+            else if (!string.IsNullOrEmpty(expressionString))
+            {
+                expressionString = expressionString.TrimEnd() + " " + btn.Content?.ToString() + " ";
+                ExpressionText.Text = expressionString;
+            }
         }
     }
 
     private void Clear_Click(object? sender, RoutedEventArgs e)
     {
         currentInput = "";
+        expressionString = "";
         DisplayBox.Text = "0";
+        ExpressionText.Text = ""; // Membersihkan layar ekspresi atas saat tombol C diklik
     }
 
     private void Equals_Click(object? sender, RoutedEventArgs e)
     {
         try
         {
-            var result = new DataTable().Compute(currentInput, null);
-            DisplayBox.Text = result?.ToString() ?? "0";
-            currentInput = DisplayBox.Text ?? "";
+            string fullExpression = expressionString + currentInput;
+            if (string.IsNullOrWhiteSpace(fullExpression)) return;
+
+            var result = new DataTable().Compute(fullExpression, null);
+            string resStr = result?.ToString() ?? "0";
+
+            ExpressionText.Text = fullExpression + " =";
+            DisplayBox.Text = resStr;
+
+            currentInput = resStr;
+            expressionString = "";
         }
         catch
         {
             DisplayBox.Text = "Error";
             currentInput = "";
+            expressionString = "";
         }
     }
 }

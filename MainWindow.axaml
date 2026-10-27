@@ -1,22 +1,33 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="proj_1.MainWindow"
-        Title="Kalkulator Sederhana"
-        Width="300" Height="400"
+        Title="Kalkulator Windows Style"
+        Width="300" Height="450"
         CanResize="False">
 
     <StackPanel Margin="10">
-        <!-- Layar Tampilan Kalkulator -->
-        <TextBox x:Name="DisplayBox" 
-                 Text="0" 
-                 FontSize="24" 
-                 TextAlignment="Right" 
-                 IsReadOnly="True" 
-                 Margin="0,0,0,10" 
-                 Height="50"/>
+        <!-- Layar Tampilan Kalkulator Style Windows -->
+        <Border Background="#1e1e1e" CornerRadius="6" Padding="10" Margin="0,0,0,10" Height="80">
+            <StackPanel VerticalAlignment="Center">
+                <!-- Teks ekspresi kecil di atas (contoh: 10 + 2 =) -->
+                <TextBlock x:Name="ExpressionText" 
+                           Text="" 
+                           FontSize="14" 
+                           Foreground="Gray" 
+                           TextAlignment="Right" 
+                           Margin="0,0,0,2"/>
+                <!-- Teks angka/hasil utama di bawah -->
+                <TextBlock x:Name="DisplayBox" 
+                           Text="0" 
+                           FontSize="28" 
+                           FontWeight="Bold"
+                           Foreground="White"
+                           TextAlignment="Right"/>
+            </StackPanel>
+        </Border>
 
         <!-- Tombol-tombol Kalkulator -->
-        <UniformGrid Rows="4" Columns="4" Height="300">
+        <UniformGrid Rows="4" Columns="4" Height="320">
             <Button Content="7" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Button Content="8" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Button Content="9" Click="Number_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
